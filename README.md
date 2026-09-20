@@ -1,6 +1,6 @@
 # MicroCat QuantGuard
 
-**为 Agenthon 2026 · T1 Coding 开发的量化代码 Agent。** 用户已选择方案 A，以 MicroCat Solo 参赛。CodaBench T1 已获准；2026-09-20 已创建首个 Development 提交记录 **935007**，当前 **Submitting**，等待官方核验与调度。
+**为 Agenthon 2026 · T1 Coding 开发的量化代码 Agent。** 用户已选择方案 A，以 MicroCat Solo 参赛。CodaBench T1 已获准；2026-09-20 已创建首个 Development 提交记录 **935007**，18:32 北京时间回读表格状态为 **Submitted**；上传面板仍显示 Running，尚无分数，等待官方核验与评测。
 
 QuantGuard 逐题读取说明与输入，调用赛事指定 House 模型生成 Python 程序，执行后校验交付文件。语法、执行或结构检查失败时，在同一资源预算内进行有限修复。它提交可运行的算法容器，解决评测时提供的新任务。
 
@@ -26,7 +26,7 @@ QuantGuard 逐题读取说明与输入，调用赛事指定 House 模型生成 P
 | 本机单测 | [56 项通过](reports/v0.1.1-unit-tests.xml)，含 87 个任务上下文加载，非解题成绩 |
 | 公开镜像 | `ghcr.io/linxiushen/microcat-quantguard@sha256:6034730e5d993a57e7e410002501e25f35dbead0baf6418b379f8ba214fd10a4` |
 | 匿名可用性 | [manifest、config、全部层及完整拉取通过](reports/v0.1.1-public-image.json) |
-| 开发投稿 | [T1 提交页](https://www.codabench.org/competitions/17765/#/participate-tab)：935007，Submitting，已用 1/20；非 Final |
+| 开发投稿 | [T1 提交页](https://www.codabench.org/competitions/17765/#/participate-tab)：935007，Submitted（09-20 18:32 回读；面板仍 Running），已用 1/20；无分数，非 Final |
 
 [版本验收](reports/v0.1.1-release-validation.json)与[原生容器报告](reports/v0.1.1-ci-container-smoke.json)对应上述固定源码和镜像。此次原生 CI 的 Landlock、seccomp 和 NoNewPrivs 均实际启用；合成 House 响应只验证执行链路，不证明模型解题正确率。
 
