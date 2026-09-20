@@ -1,0 +1,539 @@
+{
+  "checked_at": "2026-09-20T09:41:13.484869+00:00",
+  "image": "ghcr.io/linxiushen/microcat-quantguard:7f7e555decbf9b5cf7d96a7ba21396d429026ec6",
+  "image_id": "sha256:2ed4bfef66cc60b38fedc014302931e82509d84a0373fdbe528956d5b1cf41db",
+  "platform": "linux/amd64 native",
+  "host_system": "Linux",
+  "host_machine": "x86_64",
+  "scope": "Synthetic House HTTP responses; real container execution and structural checks; no real model or official task score",
+  "official_score": null,
+  "source_mounted": false,
+  "cases": [
+    {
+      "case": "success",
+      "passed": true,
+      "exit_code": 0,
+      "requests": 1,
+      "audit": {
+        "agent": "MicroCat QuantGuard",
+        "version": "0.1.1",
+        "status": "locally_validated",
+        "official_score": null,
+        "validation_scope": "local execution and structural contract only",
+        "mode": {
+          "repair": true,
+          "constraints": true
+        },
+        "events": [
+          {
+            "attempt": 1,
+            "event": "generation_requested"
+          },
+          {
+            "attempt": 1,
+            "event": "local_contract_passed"
+          }
+        ],
+        "isolation": "linux_kernel",
+        "isolation_layers": {
+          "mode": "linux_kernel",
+          "applied": {
+            "no_new_privileges": true,
+            "landlock": true,
+            "seccomp": true
+          },
+          "unavailable": []
+        },
+        "deliverables": [
+          "results.json"
+        ],
+        "elapsed_seconds": 0.186,
+        "house": {
+          "requests_reserved": 1,
+          "input_tokens_accounted": 9170,
+          "output_tokens_reported": 200
+        }
+      },
+      "result": {
+        "total": 6
+      },
+      "synthetic_repair_diagnostics": [],
+      "stderr": "",
+      "stdout": null
+    },
+    {
+      "case": "repair",
+      "passed": true,
+      "exit_code": 0,
+      "requests": 2,
+      "audit": {
+        "agent": "MicroCat QuantGuard",
+        "version": "0.1.1",
+        "status": "locally_validated",
+        "official_score": null,
+        "validation_scope": "local execution and structural contract only",
+        "mode": {
+          "repair": true,
+          "constraints": true
+        },
+        "events": [
+          {
+            "attempt": 1,
+            "event": "generation_requested"
+          },
+          {
+            "attempt": 1,
+            "event": "candidate_error"
+          },
+          {
+            "attempt": 2,
+            "event": "generation_requested"
+          },
+          {
+            "attempt": 2,
+            "event": "local_contract_passed"
+          }
+        ],
+        "isolation": "linux_kernel",
+        "isolation_layers": {
+          "mode": "linux_kernel",
+          "applied": {
+            "no_new_privileges": true,
+            "landlock": true,
+            "seccomp": true
+          },
+          "unavailable": []
+        },
+        "deliverables": [
+          "results.json"
+        ],
+        "elapsed_seconds": 0.406,
+        "house": {
+          "requests_reserved": 2,
+          "input_tokens_accounted": 20444,
+          "output_tokens_reported": 400
+        }
+      },
+      "result": {
+        "total": 6
+      },
+      "synthetic_repair_diagnostics": [
+        "candidate execution failed: Traceback (most recent call last):\n  File \"/usr/local/lib/python3.13/site-packages/quantguard/worker.py\", line 217, in <module>\n    main()\n    ~~~~^^\n  File \"/usr/local/lib/python3.13/site-packages/quantguard/worker.py\", line 213, in main\n    runpy.run_path(config[\"program\"], run_name=\"__main__\")\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/app/output/.quantguard-fhjwwhs3/attempt-1/candidate.py\", line 1, in <module>\n    raise ValueError(\"synthetic first candidate failed\")\nValueError: synthetic first candidate failed\n\nReturn the full replacement program JSON with all correct deliverables."
+      ],
+      "stderr": "",
+      "stdout": null
+    },
+    {
+      "case": "read-isolation",
+      "passed": true,
+      "exit_code": 0,
+      "requests": 1,
+      "audit": {
+        "agent": "MicroCat QuantGuard",
+        "version": "0.1.1",
+        "status": "locally_validated",
+        "official_score": null,
+        "validation_scope": "local execution and structural contract only",
+        "mode": {
+          "repair": true,
+          "constraints": true
+        },
+        "events": [
+          {
+            "attempt": 1,
+            "event": "generation_requested"
+          },
+          {
+            "attempt": 1,
+            "event": "local_contract_passed"
+          }
+        ],
+        "isolation": "linux_kernel",
+        "isolation_layers": {
+          "mode": "linux_kernel",
+          "applied": {
+            "no_new_privileges": true,
+            "landlock": true,
+            "seccomp": true
+          },
+          "unavailable": []
+        },
+        "deliverables": [
+          "results.json"
+        ],
+        "elapsed_seconds": 0.237,
+        "house": {
+          "requests_reserved": 1,
+          "input_tokens_accounted": 9170,
+          "output_tokens_reported": 200
+        }
+      },
+      "result": {
+        "total": 6
+      },
+      "synthetic_repair_diagnostics": [],
+      "stderr": "",
+      "stdout": null
+    },
+    {
+      "case": "write-isolation",
+      "passed": true,
+      "exit_code": 0,
+      "requests": 1,
+      "audit": {
+        "agent": "MicroCat QuantGuard",
+        "version": "0.1.1",
+        "status": "locally_validated",
+        "official_score": null,
+        "validation_scope": "local execution and structural contract only",
+        "mode": {
+          "repair": true,
+          "constraints": true
+        },
+        "events": [
+          {
+            "attempt": 1,
+            "event": "generation_requested"
+          },
+          {
+            "attempt": 1,
+            "event": "local_contract_passed"
+          }
+        ],
+        "isolation": "linux_kernel",
+        "isolation_layers": {
+          "mode": "linux_kernel",
+          "applied": {
+            "no_new_privileges": true,
+            "landlock": true,
+            "seccomp": true
+          },
+          "unavailable": []
+        },
+        "deliverables": [
+          "results.json"
+        ],
+        "elapsed_seconds": 0.186,
+        "house": {
+          "requests_reserved": 1,
+          "input_tokens_accounted": 9170,
+          "output_tokens_reported": 200
+        }
+      },
+      "result": {
+        "total": 6
+      },
+      "synthetic_repair_diagnostics": [],
+      "stderr": "",
+      "stdout": null
+    },
+    {
+      "case": "network-isolation",
+      "passed": true,
+      "exit_code": 0,
+      "requests": 1,
+      "audit": {
+        "agent": "MicroCat QuantGuard",
+        "version": "0.1.1",
+        "status": "locally_validated",
+        "official_score": null,
+        "validation_scope": "local execution and structural contract only",
+        "mode": {
+          "repair": true,
+          "constraints": true
+        },
+        "events": [
+          {
+            "attempt": 1,
+            "event": "generation_requested"
+          },
+          {
+            "attempt": 1,
+            "event": "local_contract_passed"
+          }
+        ],
+        "isolation": "linux_kernel",
+        "isolation_layers": {
+          "mode": "linux_kernel",
+          "applied": {
+            "no_new_privileges": true,
+            "landlock": true,
+            "seccomp": true
+          },
+          "unavailable": []
+        },
+        "deliverables": [
+          "results.json"
+        ],
+        "elapsed_seconds": 0.186,
+        "house": {
+          "requests_reserved": 1,
+          "input_tokens_accounted": 9170,
+          "output_tokens_reported": 200
+        }
+      },
+      "result": {
+        "total": 6
+      },
+      "synthetic_repair_diagnostics": [],
+      "stderr": "",
+      "stdout": null
+    },
+    {
+      "case": "numerics",
+      "passed": true,
+      "exit_code": 0,
+      "requests": 1,
+      "audit": {
+        "agent": "MicroCat QuantGuard",
+        "version": "0.1.1",
+        "status": "locally_validated",
+        "official_score": null,
+        "validation_scope": "local execution and structural contract only",
+        "mode": {
+          "repair": true,
+          "constraints": true
+        },
+        "events": [
+          {
+            "attempt": 1,
+            "event": "generation_requested"
+          },
+          {
+            "attempt": 1,
+            "event": "local_contract_passed"
+          }
+        ],
+        "isolation": "linux_kernel",
+        "isolation_layers": {
+          "mode": "linux_kernel",
+          "applied": {
+            "no_new_privileges": true,
+            "landlock": true,
+            "seccomp": true
+          },
+          "unavailable": []
+        },
+        "deliverables": [
+          "results.json"
+        ],
+        "elapsed_seconds": 1.039,
+        "house": {
+          "requests_reserved": 1,
+          "input_tokens_accounted": 9170,
+          "output_tokens_reported": 200
+        }
+      },
+      "result": {
+        "total": 6
+      },
+      "synthetic_repair_diagnostics": [],
+      "stderr": "",
+      "stdout": null
+    },
+    {
+      "case": "no-repair",
+      "passed": true,
+      "exit_code": 2,
+      "requests": 1,
+      "audit": {
+        "agent": "MicroCat QuantGuard",
+        "version": "0.1.1",
+        "status": "failed",
+        "official_score": null,
+        "validation_scope": "local execution and structural contract only",
+        "mode": {
+          "repair": false,
+          "constraints": true
+        },
+        "events": [
+          {
+            "attempt": 1,
+            "event": "generation_requested"
+          },
+          {
+            "attempt": 1,
+            "event": "candidate_error"
+          }
+        ],
+        "isolation": "linux_kernel",
+        "isolation_layers": {
+          "mode": "linux_kernel",
+          "applied": {
+            "no_new_privileges": true,
+            "landlock": true,
+            "seccomp": true
+          },
+          "unavailable": []
+        },
+        "failure_code": "candidate_error",
+        "reason": "candidate_error",
+        "elapsed_seconds": 0.237,
+        "house": {
+          "requests_reserved": 1,
+          "input_tokens_accounted": 9170,
+          "output_tokens_reported": 200
+        }
+      },
+      "result": null,
+      "synthetic_repair_diagnostics": [],
+      "stderr": "",
+      "stdout": null
+    },
+    {
+      "case": "timeout-budget",
+      "passed": true,
+      "exit_code": 2,
+      "requests": 1,
+      "audit": {
+        "agent": "MicroCat QuantGuard",
+        "version": "0.1.1",
+        "status": "failed",
+        "official_score": null,
+        "validation_scope": "local execution and structural contract only",
+        "mode": {
+          "repair": true,
+          "constraints": true
+        },
+        "events": [
+          {
+            "attempt": 1,
+            "event": "generation_requested"
+          },
+          {
+            "attempt": 1,
+            "event": "candidate_error"
+          },
+          {
+            "attempt": 2,
+            "event": "generation_requested"
+          }
+        ],
+        "isolation": "linux_kernel",
+        "isolation_layers": {
+          "mode": "linux_kernel",
+          "applied": {
+            "no_new_privileges": true,
+            "landlock": true,
+            "seccomp": true
+          },
+          "unavailable": []
+        },
+        "failure_code": "budget_exhausted",
+        "reason": "budget_exhausted",
+        "elapsed_seconds": 0.322,
+        "house": {
+          "requests_reserved": 1,
+          "input_tokens_accounted": 9170,
+          "output_tokens_reported": 200
+        }
+      },
+      "result": null,
+      "synthetic_repair_diagnostics": [],
+      "stderr": "",
+      "stdout": null
+    },
+    {
+      "case": "nonfinite-output",
+      "passed": true,
+      "exit_code": 2,
+      "requests": 1,
+      "audit": {
+        "agent": "MicroCat QuantGuard",
+        "version": "0.1.1",
+        "status": "failed",
+        "official_score": null,
+        "validation_scope": "local execution and structural contract only",
+        "mode": {
+          "repair": false,
+          "constraints": true
+        },
+        "events": [
+          {
+            "attempt": 1,
+            "event": "generation_requested"
+          },
+          {
+            "attempt": 1,
+            "event": "candidate_error"
+          }
+        ],
+        "isolation": "linux_kernel",
+        "isolation_layers": {
+          "mode": "linux_kernel",
+          "applied": {
+            "no_new_privileges": true,
+            "landlock": true,
+            "seccomp": true
+          },
+          "unavailable": []
+        },
+        "failure_code": "candidate_error",
+        "reason": "candidate_error",
+        "elapsed_seconds": 0.185,
+        "house": {
+          "requests_reserved": 1,
+          "input_tokens_accounted": 9170,
+          "output_tokens_reported": 200
+        }
+      },
+      "result": null,
+      "synthetic_repair_diagnostics": [],
+      "stderr": "",
+      "stdout": null
+    },
+    {
+      "case": "self-no-new-privileges",
+      "passed": true,
+      "exit_code": 0,
+      "requests": 1,
+      "audit": {
+        "agent": "MicroCat QuantGuard",
+        "version": "0.1.1",
+        "status": "locally_validated",
+        "official_score": null,
+        "validation_scope": "local execution and structural contract only",
+        "mode": {
+          "repair": true,
+          "constraints": true
+        },
+        "events": [
+          {
+            "attempt": 1,
+            "event": "generation_requested"
+          },
+          {
+            "attempt": 1,
+            "event": "local_contract_passed"
+          }
+        ],
+        "isolation": "linux_kernel",
+        "isolation_layers": {
+          "mode": "linux_kernel",
+          "applied": {
+            "no_new_privileges": true,
+            "landlock": true,
+            "seccomp": true
+          },
+          "unavailable": []
+        },
+        "deliverables": [
+          "results.json"
+        ],
+        "elapsed_seconds": 0.187,
+        "house": {
+          "requests_reserved": 1,
+          "input_tokens_accounted": 9170,
+          "output_tokens_reported": 200
+        }
+      },
+      "result": {
+        "total": 6
+      },
+      "synthetic_repair_diagnostics": [],
+      "stderr": "",
+      "stdout": null
+    }
+  ],
+  "passed": true
+}

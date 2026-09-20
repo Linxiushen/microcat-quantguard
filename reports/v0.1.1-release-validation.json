@@ -1,0 +1,40 @@
+{
+  "checked_at": "2026-09-20T09:44:27.793907+00:00",
+  "version": "0.1.1",
+  "code_revision": "7f7e555decbf9b5cf7d96a7ba21396d429026ec6",
+  "repository": "https://github.com/Linxiushen/microcat-quantguard",
+  "workflow_run": {
+    "conclusion": "success",
+    "headSha": "7f7e555decbf9b5cf7d96a7ba21396d429026ec6",
+    "status": "completed",
+    "updatedAt": "2026-09-20T09:41:54Z",
+    "url": "https://github.com/Linxiushen/microcat-quantguard/actions/runs/35502931967"
+  },
+  "local_unit_tests": {
+    "passed": 56,
+    "skipped": 0,
+    "scope": "includes 87 public task contexts loaded, not solved"
+  },
+  "native_ci_unit_tests": {
+    "passed": 55,
+    "skipped": 1,
+    "skip_reason": "public task fixture unavailable in clean checkout; vendor is excluded"
+  },
+  "native_ci_container_tests": {
+    "passed": 10,
+    "platform": "linux/amd64 native",
+    "image_id": "sha256:2ed4bfef66cc60b38fedc014302931e82509d84a0373fdbe528956d5b1cf41db",
+    "scope": "Synthetic House HTTP responses; real container execution and structural checks; no real model or official task score",
+    "all_cases_linux_kernel": true
+  },
+  "published_image": "ghcr.io/linxiushen/microcat-quantguard@sha256:6034730e5d993a57e7e410002501e25f35dbead0baf6418b379f8ba214fd10a4",
+  "real_house_solve_verified": false,
+  "official_score": null,
+  "official_upload_record_verified": true,
+  "submission_id": 935007,
+  "official_status": "Submitting",
+  "official_binding_verified": false,
+  "official_dispatch_verified": false,
+  "anonymous_full_pull_verified": true,
+  "public_image_evidence": "v0.1.1-public-image.json"
+}

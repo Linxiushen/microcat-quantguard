@@ -146,7 +146,7 @@ docker run --rm --platform linux/amd64 --network=none \
 
 当前 CodaBench 页面给出的是较短启动示例；`SUBMISSION_CLI.md`还链接了 v2.4.3 runtime guide，后者明确非root、只读rootfs和no-new-privileges。公开仓库没有实际组织者launcher源代码，按完整runtime guide验收，并保留正式运行结果的独立边界。
 
-## 7. 本轮实际验证结果
+## 7. 初始环境核验结果（早于正式作品发布）
 
 - Python与六个核心检查库成功import；toolkit/track distribution、scorer和contract版本回读成功。
 - **87个官方公开unit的card及manifest均通过**，未修改官方题目或检查器。
@@ -156,6 +156,8 @@ docker run --rm --platform linux/amd64 --network=none \
 - 未调用真实House端点、未读取token或Team Key、未进行CodaBench上传、未启动收费资源。
 
 完整本地事实记录在`vendor/environment-check/evidence.json`；安装锁文件为`requirements-official.lock.txt`。
+
+后续 v0.1.1 已通过原生 CI、公开镜像匿名拉取并创建首次 Development 记录 935007（Submitting）。该版本与实际验证范围见 README 及 `reports/v0.1.1-release-validation.json`。上述官方 exemplar 仍不是 QuantGuard 成果；当前没有真实 House 解题成绩或官方榜分。
 
 ## 8. 权利与提交状态
 

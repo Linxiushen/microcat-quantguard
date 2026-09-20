@@ -1,6 +1,6 @@
 # MicroCat QuantGuard
 
-**为 Agenthon 2026 · T1 Coding 开发的量化代码 Agent。** 用户已选择方案 A，以 MicroCat Solo 参赛。CodaBench 的 T1 入赛申请已提交，已获主办方批准并开放上传权限；当前还没有作品提交。
+**为 Agenthon 2026 · T1 Coding 开发的量化代码 Agent。** 用户已选择方案 A，以 MicroCat Solo 参赛。CodaBench T1 已获准；2026-09-20 已创建首个 Development 提交记录 **935007**，当前 **Submitting**，等待官方核验与调度。
 
 QuantGuard 逐题读取说明与输入，调用赛事指定 House 模型生成 Python 程序，执行后校验交付文件。语法、执行或结构检查失败时，在同一资源预算内进行有限修复。它提交可运行的算法容器，解决评测时提供的新任务。
 
@@ -15,7 +15,20 @@ QuantGuard 逐题读取说明与输入，调用赛事指定 House 模型生成 P
 | 输出 | 每题独立文件名，JSON/CSV/Parquet 等结构检查、有限数值、路径与总量检查；禁止评分器文件和污染标记 |
 | 证据 | [本地单元测试](reports/unit-tests.xml)、[容器运行报告](reports/container-smoke.json)、[官方环境合约](IMPLEMENTATION-CONTRACT.md) |
 
-**验证边界：** 测试使用本地合成 House HTTP 响应，验证真实代码执行、修复、隔离与结构检查。87 个公开任务的卡片和清单校验、任务上下文加载，也不等于解出了 87 题。目前没有真实 House 解题成绩、官方榜分或参赛作品提交。
+**验证边界：** 测试使用合成 House HTTP 响应，验证真实代码执行、修复、隔离与结构检查。87 个公开任务的卡片和清单校验、任务上下文加载，也不等于解出了 87 题。v0.1.1 已完成首次 Development 上传；目前没有真实 House 解题成绩或官方榜分，官方团队绑定尚未核验。
+
+## v0.1.1 发布与提交
+
+| 项目 | 实际证据 |
+|---|---|
+| 固定源码 | `7f7e555decbf9b5cf7d96a7ba21396d429026ec6` |
+| 原生 Linux CI | [成功运行](https://github.com/Linxiushen/microcat-quantguard/actions/runs/35502931967)：55 项通过、1 项跳过（未附带本地公开题库），10 个真实容器场景通过 |
+| 本机单测 | [56 项通过](reports/v0.1.1-unit-tests.xml)，含 87 个任务上下文加载，非解题成绩 |
+| 公开镜像 | `ghcr.io/linxiushen/microcat-quantguard@sha256:6034730e5d993a57e7e410002501e25f35dbead0baf6418b379f8ba214fd10a4` |
+| 匿名可用性 | [manifest、config、全部层及完整拉取通过](reports/v0.1.1-public-image.json) |
+| 开发投稿 | [T1 提交页](https://www.codabench.org/competitions/17765/#/participate-tab)：935007，Submitting，已用 1/20；非 Final |
+
+[版本验收](reports/v0.1.1-release-validation.json)与[原生容器报告](reports/v0.1.1-ci-container-smoke.json)对应上述固定源码和镜像。此次原生 CI 的 Landlock、seccomp 和 NoNewPrivs 均实际启用；合成 House 响应只验证执行链路，不证明模型解题正确率。
 
 ## 构建与运行
 
@@ -65,11 +78,10 @@ uv pip install --python .venv/bin/python -e '.[test]'
 
 ## 后续验收与提交
 
-1. T1 入赛申请已批准；首次 Development 提交将请求官方 House 执行与真实评测。
-2. 基于官方开发评测结果记录真实通过率和失败类别，后续进行同资源消融对照。
-3. 固定候选版本，构建并发布匿名可拉取的 Linux/amd64 镜像，取得实际 registry digest。
-4. 使用官方 v2.4.3 toolkit 校验 descriptor；Team 485 的 proof 由私密 Team Key 生成，密钥不进入 ZIP 或仓库。
-5. 全部验收通过后才使用有上限的 Development 上传。T1 每天 1 次、合计 20 次，held/cancelled 也计次；不上传占位包。
+1. 跟进提交 935007 的官方团队证明核验、调度与实际结果。网站报名、T1 准入、proof 本地通过和官方绑定分别记录。
+2. 按真实评测反馈分析失败题型，再以相同模型和资源对照一次生成、有限修复与关闭约束版本。
+3. 每次迭代固定源码与不可变镜像，并重新验收；当前版本已用 Development 1/20，当天 1/1，不重复上传。
+4. Final 每赛道仅 1 次，留待充分验证后使用；当前没有 Final 提交或官方榜分。
 
 ## 来源与许可
 

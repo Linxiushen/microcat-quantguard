@@ -1,0 +1,24 @@
+{
+  "checked_at": "2026-09-20T09:43:55.966935+00:00",
+  "archive_sha256": "e6e72bbce7c4b70824d0bde8f8c79333de31ecb255580fa7745b9707dc7f7fd2",
+  "archive_bytes": 1206,
+  "files": [
+    "submission.json",
+    "team-claim.json"
+  ],
+  "team_number": 485,
+  "team_alias_matches_official_key": true,
+  "team_claim_hmac_validated_locally": true,
+  "official_binding_verified": false,
+  "descriptor_validated": true,
+  "image": {
+    "digest": "sha256:6034730e5d993a57e7e410002501e25f35dbead0baf6418b379f8ba214fd10a4",
+    "registry": "ghcr.io",
+    "repository": "linxiushen/microcat-quantguard"
+  },
+  "phase": "dev",
+  "competition_id": "agenthon2026-coding-dev",
+  "secrets_in_archive": false,
+  "toolkit_version": "2.4.3",
+  "code_revision": "7f7e555decbf9b5cf7d96a7ba21396d429026ec6"
+}

@@ -1,0 +1,67 @@
+{
+  "checked_at": "2026-09-20T09:46:35.496678+00:00",
+  "reference": "ghcr.io/linxiushen/microcat-quantguard@sha256:6034730e5d993a57e7e410002501e25f35dbead0baf6418b379f8ba214fd10a4",
+  "anonymous_manifest_digest_verified": true,
+  "anonymous_config_verified": true,
+  "anonymous_layer_access": [
+    {
+      "digest": "sha256:f072f58012e569b0fc15edd040e893d5a99c5cd8050a0e93304598c2bf794a83",
+      "anonymous_head_status": 200,
+      "bytes": 30845647
+    },
+    {
+      "digest": "sha256:3d9fb74714202c0d9ba7af2ca3e226fec5647f73cefc725b7ff37338bc1b59ec",
+      "anonymous_head_status": 200,
+      "bytes": 1294116
+    },
+    {
+      "digest": "sha256:264ba3d8ae19c964ad7ebecdd4379a348cc08c7898b50d08d7884127a78fdb23",
+      "anonymous_head_status": 200,
+      "bytes": 11908066
+    },
+    {
+      "digest": "sha256:4a43a40b039e72c4176e2fcbb0c08f42be7ff4e6a07722417801c9147b67bfb2",
+      "anonymous_head_status": 200,
+      "bytes": 250
+    },
+    {
+      "digest": "sha256:502afc79500c17b567c3edfc2886f4f2c1d780af52d9a93900d68de0900380c6",
+      "anonymous_head_status": 200,
+      "bytes": 117
+    },
+    {
+      "digest": "sha256:7712a6ac5f12f6b751588317c3efe98c3130d0f3794753c3457c235f00d4e35d",
+      "anonymous_head_status": 200,
+      "bytes": 36262
+    },
+    {
+      "digest": "sha256:6c86f64ec12f322174b1b325cce506dd16b6f5dc4ea20b88098c7e02f0bb0dfc",
+      "anonymous_head_status": 200,
+      "bytes": 291724987
+    },
+    {
+      "digest": "sha256:c3541152f1d661e8f962a1b1eb36a775382c91a12d18b7534885b83457354b35",
+      "anonymous_head_status": 200,
+      "bytes": 1308
+    },
+    {
+      "digest": "sha256:663bb1c40aba60a0679d5b4c06e54d71e84a80ed8b5bfd2070cd68c1ed483d4a",
+      "anonymous_head_status": 200,
+      "bytes": 48397
+    },
+    {
+      "digest": "sha256:18d18630de3bbb83b1e68ac10793bb2315e1be65170aed57b1dfc23ac4859eb1",
+      "anonymous_head_status": 200,
+      "bytes": 1038159
+    }
+  ],
+  "anonymous_docker_pull": true,
+  "credentials_used": false,
+  "os": "linux",
+  "architecture": "amd64",
+  "user": "65534:65534",
+  "interface_version": "2.0",
+  "source_revision": "7f7e555decbf9b5cf7d96a7ba21396d429026ec6",
+  "config_digest_matches_native_ci_image_id": true,
+  "config_digest": "sha256:2ed4bfef66cc60b38fedc014302931e82509d84a0373fdbe528956d5b1cf41db"
+}
