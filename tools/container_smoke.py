@@ -121,6 +121,9 @@ else:
                 '-e',f'MODEL_ENDPOINT=http://host.docker.internal:{http.server_port}',
                 '-e','MODEL_NAME=house','-e',f'MODEL_TOKEN={TOKEN}',
                 '-e','QFBENCH_NETWORK=restricted','-e','QFBENCH_SEED=0','-e','QUANTGUARD_ISOLATION=container']
+            if mode == 'self-no-new-privileges':
+                at = command.index('--security-opt')
+                del command[at:at+2]
             if platform.system() == 'Linux':
                 command += ['--add-host','host.docker.internal:host-gateway']
             if source:
@@ -164,13 +167,13 @@ def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--image',default='microcat-quantguard:0.1.0')
     parser.add_argument('--source',action='store_true',help='Mount current source into an official Python base for bootstrap tests')
-    parser.add_argument('--cases',default='success,repair,read-isolation,write-isolation,network-isolation,numerics,no-repair,timeout-budget,nonfinite-output')
+    parser.add_argument('--cases',default='success,repair,read-isolation,write-isolation,network-isolation,numerics,no-repair,timeout-budget,nonfinite-output,self-no-new-privileges')
     parser.add_argument('--report',type=Path,default=ROOT/'reports/container-smoke.json')
     args=parser.parse_args()
     results=[run_case(args.image,c,args.source) for c in args.cases.split(',')]
     image_id=subprocess.check_output(['docker','image','inspect',args.image,'--format','{{.Id}}'],text=True).strip()
     data={'checked_at':datetime.now(timezone.utc).isoformat(),'image':args.image,'image_id':image_id,
-          'platform':'linux/amd64 on Apple Silicon emulation','scope':'Synthetic House HTTP responses; real container execution and structural checks; no real model or official task score',
+          'platform':('linux/amd64 on Apple Silicon emulation' if platform.system() == 'Darwin' and platform.machine() == 'arm64' else 'linux/amd64 native'), 'host_system':platform.system(), 'host_machine':platform.machine(),'scope':'Synthetic House HTTP responses; real container execution and structural checks; no real model or official task score',
           'official_score':None,'source_mounted':args.source,'cases':results,'passed':all(x['passed'] for x in results)}
     args.report.parent.mkdir(parents=True,exist_ok=True)
     args.report.write_text(json.dumps(data,indent=2)+'\n')

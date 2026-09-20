@@ -1,6 +1,6 @@
 # QuantGuard · Agenthon T1 implementation contract
 
-本文件基于 2026-09-20 落地的官方源码。用户已选 A / QuantGuard / T1；CodaBench 申请处于 Pending，不等于评测已获准。本文件不记录 Team Key、真实 MODEL_TOKEN 或任何凭据。
+本文件基于 2026-09-20 落地的官方源码。用户已选 A / QuantGuard / T1；CodaBench T1 已批准上传；作品和官方评测结果仍分别核验。本文件不记录 Team Key、真实 MODEL_TOKEN 或任何凭据。
 
 ## 1. 固定版本与已准备环境
 
@@ -143,6 +143,8 @@ docker run --rm --platform linux/amd64 --network=none \
 ```
 
 `checks/test.sh`自己可能在检查失败时也exit0，必须读真实reward与pytest report。上面的简单Docker命令尚未施加完整平台nonroot/read-only/resource条件；正式验收再按固定toolkit `docs/DEVELOPMENT-RUNTIME.md`的设置执行。当前本地Docker约7.75GiB内存、10 CPU，低于公开卡128GiB/16 CPU，不能声称本地严格复现官方完整资源。
+
+当前 CodaBench 页面给出的是较短启动示例；`SUBMISSION_CLI.md`还链接了 v2.4.3 runtime guide，后者明确非root、只读rootfs和no-new-privileges。公开仓库没有实际组织者launcher源代码，按完整runtime guide验收，并保留正式运行结果的独立边界。
 
 ## 7. 本轮实际验证结果
 

@@ -24,7 +24,7 @@ jobs:
       - name: Verify unit contracts
         run: |
           python -m pip install -e '.[test]'
-          python -m pytest -q tests/test_house.py tests/test_task.py tests/test_validation.py
+          python -m pytest -q tests/test_house.py tests/test_task.py tests/test_validation.py tests/test_runtime_isolation.py
       - name: Build native Linux amd64 image
         run: |
           docker build --platform linux/amd64 --target release \
@@ -36,6 +36,7 @@ jobs:
           python tools/container_smoke.py \
             --image ghcr.io/linxiushen/microcat-quantguard:${{ github.sha }} \
             --report reports/ci-container-smoke.json
+          cat reports/ci-container-smoke.json
       - name: Publish validated container
         env:
           GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}

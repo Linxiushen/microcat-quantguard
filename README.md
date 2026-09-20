@@ -20,7 +20,7 @@ QuantGuard 逐题读取说明与输入，调用赛事指定 House 模型生成 P
 ## 构建与运行
 
 ```sh
-docker build --platform linux/amd64 --target release -t microcat-quantguard:0.1.0 .
+docker build --platform linux/amd64 --target release -t microcat-quantguard:0.1.1 .
 ```
 
 运行时由评测平台注入 `MODEL_ENDPOINT`、`MODEL_NAME`、`MODEL_TOKEN` 和代理变量。开发时使用自己的明确授权兼容端点；不要把这些变量写进镜像、报告或提交包。
@@ -39,7 +39,7 @@ docker run --rm --platform linux/amd64 \
   --mount type=bind,src="/absolute/path/to/unit",dst=/input,readonly \
   --mount type=bind,src="$PWD/out",dst=/output \
   --mount type=bind,src="$PWD/out",dst=/app/output \
-  microcat-quantguard:0.1.0 solve --task-dir /input --out /app/output
+  microcat-quantguard:0.1.1 solve --task-dir /input --out /app/output
 ```
 
 上面 2 CPU / 2 GiB 是小型本地验证配置；正式资源和时间按每题卡片与主办方执行环境。输出目录必须为空。没有有效模型配置会明确失败，不生成占位答案。成功时输出 `quantguard-audit.json`，其中 `official_score` 始终为 `null`；真正得分只能由官方评测给出。
@@ -49,7 +49,7 @@ docker run --rm --platform linux/amd64 \
 ```sh
 uv venv --python 3.13 .venv
 uv pip install --python .venv/bin/python -e '.[test]'
-.venv/bin/python -m pytest -q tests/test_house.py tests/test_task.py tests/test_validation.py
+.venv/bin/python -m pytest -q tests/test_house.py tests/test_task.py tests/test_validation.py tests/test_runtime_isolation.py
 .venv/bin/python tools/container_smoke.py
 ```
 
@@ -59,14 +59,14 @@ uv pip install --python .venv/bin/python -e '.[test]'
 
 ## 执行边界
 
-候选进程不继承模型凭证或代理变量，只读允许的输入，在私有工作目录生成产物，并受时间、内存、文件与进程限制。支持时启用 Landlock/seccomp。镜像显式设置容器兼容模式；只有 Linux、非 root、只读根文件系统、只读任务挂载及 `no-new-privileges` 条件满足时才允许使用它。
+候选进程不继承模型凭证或代理变量，只读允许的输入，在私有工作目录生成产物，并受时间、内存、文件与进程限制。支持时启用 Landlock/seccomp。镜像显式设置容器兼容模式；只有 Linux、非 root、只读根文件系统、只读任务挂载条件满足时才允许使用它；候选进程自行设置 `no-new-privileges`，不依赖宿主提前设置。
 
 兼容模式依赖外层容器边界，Python 路径审计是防错护栏，**不宣称能隔离任意恶意 Python 或原生扩展**。运行报告会记录实际模式。当前官方 CodaBench 文案与固定工具包对 gVisor/runc 的描述不同，正式环境仍需主办方确认及实际验收；本地 amd64 模拟速度也不能用作正式性能成绩。
 
 ## 后续验收与提交
 
-1. T1 入赛申请已批准；下一步验证真实 House 执行通路。
-2. 在相同模型和资源上运行公开任务，记录真实通过率、失败类别及与一次生成基线的对照。
+1. T1 入赛申请已批准；首次 Development 提交将请求官方 House 执行与真实评测。
+2. 基于官方开发评测结果记录真实通过率和失败类别，后续进行同资源消融对照。
 3. 固定候选版本，构建并发布匿名可拉取的 Linux/amd64 镜像，取得实际 registry digest。
 4. 使用官方 v2.4.3 toolkit 校验 descriptor；Team 485 的 proof 由私密 Team Key 生成，密钥不进入 ZIP 或仓库。
 5. 全部验收通过后才使用有上限的 Development 上传。T1 每天 1 次、合计 20 次，held/cancelled 也计次；不上传占位包。

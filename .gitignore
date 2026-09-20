@@ -21,3 +21,4 @@ team-claim.json
 .DS_Store
 reports/container-bootstrap*.json
 reports/container-guard-bootstrap.json
+reports/ci-*.log

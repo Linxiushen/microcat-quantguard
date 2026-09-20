@@ -114,6 +114,7 @@ def solve(args) -> tuple[int, dict]:
                          timeout=min(args.candidate_timeout, max(0.1, budget.deadline - time.monotonic() - 0.5)),
                          memory_bytes=args.candidate_memory_mib * 1024**2, seed=seed, secrets=secrets)
                 audit["isolation"] = run.isolation
+                audit["isolation_layers"] = run.isolation_layers
                 if run.timed_out:
                     raise CandidateError("candidate exceeded execution time limit")
                 if run.returncode != 0:

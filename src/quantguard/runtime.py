@@ -19,6 +19,7 @@ class RunResult:
     timed_out: bool
     elapsed: float
     isolation: str = "os_sandbox"
+    isolation_layers: dict | None = None
 
 
 def container_guard_allowed(task_dir: Path | None = None) -> bool:
@@ -35,12 +36,10 @@ def container_guard_allowed(task_dir: Path | None = None) -> bool:
         rows = Path("/proc/self/mountinfo").read_text().splitlines()
         roots = [row.split() for row in rows if len(row.split()) > 5 and row.split()[4] == "/"]
         readonly = bool(roots) and "ro" in roots[0][5].split(",")
-        status = Path("/proc/self/status").read_text()
-        nnp = any(line.split() == ["NoNewPrivs:", "1"] for line in status.splitlines())
     except OSError:
         raise SandboxError("unable to verify container launch restrictions") from None
-    if not readonly or not nnp:
-        raise SandboxError("container mode requires read-only root and no-new-privileges")
+    if not readonly:
+        raise SandboxError("container mode requires a read-only root filesystem")
     if task_dir is not None and not (os.statvfs(task_dir).f_flag & os.ST_RDONLY):
         raise SandboxError("container mode requires a read-only task mount")
     return True
@@ -148,4 +147,13 @@ def run_candidate(program_path: Path, task, output_dir: Path, *, timeout: float,
                 mode = value
         except (OSError, ValueError):
             pass
-    return RunResult(proc.returncode, diagnostic, timed_out, time.monotonic() - started, mode)
+    layers = None
+    layers_path = work / "isolation-layers.json"
+    if layers_path.is_file() and not layers_path.is_symlink():
+        try:
+            value = json.loads(layers_path.read_text())
+            if isinstance(value, dict) and value.get("mode") == mode:
+                layers = value
+        except (OSError, ValueError):
+            pass
+    return RunResult(proc.returncode, diagnostic, timed_out, time.monotonic() - started, mode, layers)

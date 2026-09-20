@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "microcat-quantguard"
-version = "0.1.0"
+version = "0.1.1"
 description = "House-only bounded coding agent for Agenthon Track 1"
 requires-python = ">=3.11"
 dependencies = []
