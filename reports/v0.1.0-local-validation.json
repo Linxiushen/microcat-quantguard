@@ -1,0 +1,51 @@
+{
+  "checked_at_beijing": "2026-09-20T17:29:12+08:00",
+  "version": "0.1.0",
+  "stage": "first_local_implementation_validated",
+  "source_sha256": {
+    "src/quantguard/__init__.py": "f40f92ffd4ef10b01171edd107d1526ca6b4aea65f318b389abcad4ab39fdcaa",
+    "src/quantguard/__main__.py": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
+    "src/quantguard/cli.py": "9a1a7da612e920016e120037626b8b7d253eafae8f344863543bd427a22ac5fd",
+    "src/quantguard/errors.py": "f6a1c97e316acf4623098ac088b498a797cc6baa536ce3b0ee144f9904923abb",
+    "src/quantguard/house.py": "9d29ddaff53dd8268ecabf01763ab7d499105e6897a26c0d3f8fb15b11aeab4a",
+    "src/quantguard/runtime.py": "b5315f6cc892a5408735839d2fb23057a0a7b21a7bab834ca5ba04b3e4ec6e9c",
+    "src/quantguard/task.py": "8f568230c403770176996785b08ac76c0978eb0859c5d1ebd95f21fb11e57cbb",
+    "src/quantguard/validation.py": "33f7391e09cb8512c5fab10600dfa90d5b678e12e173504920405c81520b85f3",
+    "src/quantguard/worker.py": "ba2cffef3efdb0f4a33f7ae3187bd557ff22c7122f3c2ec69a247ba07c325bd9"
+  },
+  "runtime_lock_sha256": "c93193e9cfc64343fe4aa65ec6b30651a8aadd2ba3906a7ba915af1d312a55c0",
+  "local_image": "microcat-quantguard:0.1.0",
+  "local_image_id": "sha256:2452f739de98df7386f991c515b1c0c87df736e59891253d607f8c03aa2ac7cf",
+  "local_platform": "linux/amd64 on Apple Silicon emulation",
+  "unit_tests": {
+    "tests": 43,
+    "failures_and_errors": 0,
+    "files": [
+      "tests/test_house.py",
+      "tests/test_task.py",
+      "tests/test_validation.py"
+    ]
+  },
+  "container_cases": {
+    "total": 9,
+    "passed": 9,
+    "synthetic_house_responses": true,
+    "real_subprocess_and_numerical_execution": true
+  },
+  "public_tasks": {
+    "cards_and_manifests": 87,
+    "context_loads": 87,
+    "solved_by_real_house": 0
+  },
+  "official_score": null,
+  "proof_binding": false,
+  "submission_count": 0,
+  "registration": "T1 approved; upload UI available, quotas 0/1 and 0/20",
+  "limitations": [
+    "No real House solve or official task score has been obtained.",
+    "Apple Silicon linux/amd64 execution uses emulation; not a performance benchmark.",
+    "container_guarded is an explicit compatibility mode under a hardened container, not an adversarial native-code sandbox.",
+    "Native macOS sandbox-exec startup is not yet supported.",
+    "The local image has not been anonymously published; registry image must be separately verified."
+  ]
+}

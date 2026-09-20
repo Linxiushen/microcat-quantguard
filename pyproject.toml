@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "microcat-quantguard"
+version = "0.1.0"
+description = "House-only bounded coding agent for Agenthon Track 1"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+numerics = ["numpy>=2,<3", "scipy>=1.14,<2", "pandas>=2.2,<3", "pyarrow>=18,<22", "openpyxl>=3.1,<4", "sympy>=1.13,<2"]
+test = ["pytest>=8,<10"]
+
+[project.scripts]
+quantguard = "quantguard.cli:main"
+solve = "quantguard.cli:solve_main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

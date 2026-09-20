@@ -1,0 +1,14 @@
+.git
+.venv
+vendor
+out
+scratch
+reports
+tests
+.env*
+submission*
+team-claim.json
+*team-key*
+*private*
+__pycache__
+*.egg-info

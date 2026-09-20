@@ -1,0 +1,27 @@
+# Exact installed official-check environment; generated 2026-09-20T17:07:37+08:00
+attrs==26.1.0
+cloudpickle==3.1.2
+iniconfig==2.3.0
+joblib==1.6.0
+jsonschema==4.26.0
+jsonschema-specifications==2025.9.1
+narwhals==2.26.0
+numpy==2.5.3
+packaging==26.3
+pandas==3.0.6
+pluggy==1.6.0
+pyarrow==25.0.1
+pygments==2.21.0
+pytest==9.1.1
+pytest-json-report==1.5.0
+pytest-metadata==3.1.1
+pytest-timeout==2.4.0
+python-dateutil==2.9.0.post0
+qfbench2-common @ git+https://github.com/Agenthon-2026/Agenthon2026-public.git@03fc89cc666354e999768381bb923e60be5c1cee#subdirectory=common
+qfbench2-track-coding @ git+https://github.com/Agenthon-2026/track1-coding-public.git@3f6a7a6bd37c2fc0d59eb94b609f1098a42a9bc0
+referencing==0.37.0
+rpds-py==2026.6.3
+scikit-learn==1.9.1
+scipy==1.18.1
+six==1.17.0
+threadpoolctl==3.7.0

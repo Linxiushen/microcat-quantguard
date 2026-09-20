@@ -1,0 +1,3 @@
+# Official checker dependencies only; QuantGuard application requirements are separate.
+# Reproducible installation: uv pip install --python .venv/bin/python -r requirements-official.lock.txt
+-r requirements-official.lock.txt

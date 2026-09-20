@@ -1,0 +1,18 @@
+# Numerical and report packages declared by the public T1 sandbox, plus SymPy.
+# No task data, tests, model weights or external model clients are bundled.
+numpy>=2,<3
+scipy>=1.14,<2
+pandas>=2.2,<3
+pyarrow>=18,<22
+scikit-learn>=1.4,<2
+statsmodels>=0.14,<1
+arch>=7,<9
+polars>=1,<2
+TA-Lib>=0.6,<1
+backtrader>=1.9,<2
+matplotlib>=3.8,<4
+seaborn>=0.13,<1
+plotly>=5.18,<7
+openpyxl>=3.1,<4
+sympy>=1.13,<2
+tqdm>=4.66,<5
